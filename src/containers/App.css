@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'StarJediOutline';
+  font-style: normal;
+  font-weight: normal;
+  src: local("Star Jedi Outline"),
+    url("../fonts/StarJediOutline-y0xm.ttf") format("ttf");
+}
+
+.heading {
+  font-family: 'StarJediOutline';
+}
+
 .App {
   text-align: center;
 }
