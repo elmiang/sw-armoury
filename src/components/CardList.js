@@ -1,9 +1,9 @@
 import React from "react";
-import CardVehicle from "./CardVehicle";
+import ElementCard from "./ElementCard";
 
 const CardList = (props) => {
   const elements = props.elements.map((element, i) => {
-    return <CardVehicle 
+    return <ElementCard 
       key={i}
       name={element.name}
       model={element.model}
@@ -12,9 +12,11 @@ const CardList = (props) => {
   });
 
   return(
-    <div>
+    <div className="m-5">
       <h1>{props.heading}</h1>
-      {elements}
+      <div className="grid">
+        {elements}
+      </div>
     </div>
   )
 }

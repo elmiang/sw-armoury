@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return(
       <div className='text-center'>
-        <h1 className='heading fw-bolder fs-1 text-uppercase'>Starwars Armoury</h1>
+        <h1 className='heading fw-bolder fs-1 text-uppercase mt-4 py-5 border-bottom border-primary'>Starwars Armoury</h1>
         <CardList heading="Vehicles" elements={this.state.vehicles}/>
         <CardList heading="Starships" elements={this.state.starships}/>
       </div>
