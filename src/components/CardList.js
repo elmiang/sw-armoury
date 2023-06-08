@@ -13,7 +13,7 @@ const CardList = (props) => {
 
   return(
     <div className="m-5">
-      <h1>{props.heading}</h1>
+      <h1 className="text-light">{props.heading}</h1>
       <div className="grid">
         {elements}
       </div>
