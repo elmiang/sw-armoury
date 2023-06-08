@@ -51,7 +51,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

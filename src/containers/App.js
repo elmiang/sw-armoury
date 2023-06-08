@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
+import ToggleButton from '../components/ToggleButton';
 
 class App extends Component {
   constructor() {
@@ -11,6 +12,8 @@ class App extends Component {
       vehicles: [],
       starships: [],
       searchField: '',
+      displayVehicles: true,
+      displayStarships: true,
     }
   }
 
@@ -28,6 +31,18 @@ class App extends Component {
     this.setState({ searchField: event.target.value })
   }
 
+  onVehicleToggle = () => {
+    this.setState(prevState => ({
+      displayVehicles: !prevState.displayVehicles
+    }));
+  }
+
+  onStarshipToggle = () => {
+    this.setState(prevState => ({
+      displayStarships: !prevState.displayStarships
+    }));
+  }
+
   render() {
     const { vehicles, starships, searchField } = this.state; 
 
@@ -41,12 +56,18 @@ class App extends Component {
 
     return(
       <div className='text-center bg-dark'>
-        <h1 className='heading fw-bolder fs-1 text-uppercase mt-4 py-5 border-bottom border-primary text-light'>Starwars Armoury</h1>
-        <div className='d-flex justify-content-center'>
-          <SearchBox searchChange={this.onSearchChange}/>
+        <h1 className='heading fw-bolder fs-1 text-uppercase mt-4 py-5 border-bottom border-white text-light'>Starwars Armoury</h1>
+        <div className='d-flex justify-content-center py-3 mx-5'>
+          <div className='d-inline-flex me-auto'>
+            <ToggleButton name='Vehicles' toggled={this.state.displayVehicles} toggle={this.onVehicleToggle}/>
+            <ToggleButton name='Starships' toggled={this.state.displayStarships} toggle={this.onStarshipToggle}/>
+          </div>
+          <div className='me-auto w-50'>
+            <SearchBox searchChange={this.onSearchChange}/>
+          </div>
         </div>
-        <CardList heading="Vehicles" elements={filteredVehicles}/>
-        <CardList heading="Starships" elements={filteredStarships}/>
+        {this.state.displayVehicles && <CardList heading="Vehicles" elements={filteredVehicles}/>}
+        {this.state.displayStarships && <CardList heading="Starships" elements={filteredStarships}/>}
       </div>
     );
   }

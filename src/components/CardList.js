@@ -1,8 +1,8 @@
 import React from "react";
 import ElementCard from "./ElementCard";
 
-const CardList = (props) => {
-  const elements = props.elements.map((element, i) => {
+const CardList = ({ elements, heading}) => {
+  const mappedElements = elements.map((element, i) => {
     return <ElementCard 
       key={i}
       name={element.name}
@@ -13,9 +13,9 @@ const CardList = (props) => {
 
   return(
     <div className="m-5">
-      <h1 className="text-light">{props.heading}</h1>
+      <h1 className="text-light">{heading}</h1>
       <div className="grid">
-        {elements}
+        {mappedElements}
       </div>
     </div>
   )
