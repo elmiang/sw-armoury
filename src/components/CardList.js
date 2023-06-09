@@ -8,6 +8,7 @@ const CardList = ({ elements, heading}) => {
       name={element.name}
       model={element.model}
       cost_in_credits={element.cost_in_credits}
+      {...element}
     />
   });
 
