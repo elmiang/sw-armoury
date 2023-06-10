@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Card } from "react-bootstrap";
-import StarshipModal from "./StarshipModal";
 import VehicleModal from "./VehicleModal";
 
 const ElementCard = (props) => {
@@ -16,11 +15,10 @@ const ElementCard = (props) => {
         <Card.Body>
           <Card.Title className="fw-bolder">{props.name}</Card.Title>
           <Card.Text className="fst-italic">{props.model}</Card.Text>
-          <Card.Text className="fw-light">{props.cost_in_credits}</Card.Text>
+          <Card.Text className="fw-light">{!isNaN(props.cost_in_credits) ? 'ᖬ' + props.cost_in_credits : props.cost_in_credits}</Card.Text>
         </Card.Body>
       </Card>
-      {props.vehicle_class && <VehicleModal modalOpen={modalOpen} toggleModal={handleClick} {...props}/>}
-      {props.starship_class && <StarshipModal modalOpen={modalOpen} toggleModal={handleClick} {...props}/>}
+      <VehicleModal modalOpen={modalOpen} toggleModal={handleClick} {...props}/>
     </div>
   );
 }

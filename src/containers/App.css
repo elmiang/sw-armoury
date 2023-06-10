@@ -68,3 +68,8 @@
   height: 100%;
   width: 100%;
 }
+
+.card-modal .modal-content {
+  background-color: #292b2c;
+  color: white
+}
