@@ -18,11 +18,49 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const vehiclesResponse = await axios.get('https://swapi.dev/api/vehicles');
-    
-    const starshipsResponse = await axios.get('https://swapi.dev/api/starships');
+    const vehiclesUrls = 
+    [
+      './vehicles/Sandcrawler.png',
+      './vehicles/t16skyhopper.png',
+      './vehicles/x34landspeeder.png',
+      './vehicles/tiefighter2.png',
+      './vehicles/snowspeeder.png',
+      './vehicles/tiebomber.png',
+      './vehicles/atat.png',
+      './vehicles/at-st.png',
+      './vehicles/cloudcar.png',
+      './vehicles/sailbarge.png',
+    ];
+    const starshipUrls = [
+      './starships/cr90.png',
+      './starships/stardestroyer.png',
+      './starships/sentinel.png',
+      './starships/deathstar.png',
+      './starships/milleniumfalcon.png',
+      './starships/ywing.png',
+      './starships/xwing.png',
+      './starships/tieadvanced.png',
+      './starships/executor.png',
+      './starships/rebeltransport.png',
+    ];
 
-    this.setState({ vehicles: vehiclesResponse.data.results, starships: starshipsResponse.data.results});
+    const vehiclesResponse = await axios.get('https://swapi.dev/api/vehicles');
+    const vehiclesData = await vehiclesResponse.data.results.map((vehicle, index) => {
+      if (vehiclesUrls[index]) {
+        vehicle.imageUrl = vehiclesUrls[index];
+      }
+      return vehicle;
+    });
+
+    const starshipsResponse = await axios.get('https://swapi.dev/api/starships');
+    const starshipsData = await starshipsResponse.data.results.map((starship, index) => {
+      if (starshipUrls[index]) {
+        starship.imageUrl = starshipUrls[index];
+      }
+      return starship;
+    });
+
+    this.setState({ vehicles: vehiclesData, starships: starshipsData });
   }
 
   //Arrow function uses value from outer function (event from onChange in SearchBox.js)

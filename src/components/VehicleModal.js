@@ -13,6 +13,11 @@ const VehicleModal = (props) => {
     event.stopPropagation();
   }
 
+  const {vehicle_class, starship_class, model, manufacturer, cost_in_credits, 
+        max_atmosphering_speed, length, crew, cargo_capacity, hyperdrive_rating, MGLT} = props;
+
+  const formatter = new Intl.NumberFormat();
+
   return(
     <div className="modal-overlay" onClick={onOverlayClick}>
       <Modal className="card-modal" show={props.modalOpen} onClick={onModalClick}>
@@ -20,17 +25,24 @@ const VehicleModal = (props) => {
           <Modal.Title className="fs-2">{props.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="fst-italic">
-            <p>{props.vehicle_class ? props.vehicle_class : props.starship_class} {props.model}</p>
-            <p>{props.manufacturer}</p>
-            <p>{!isNaN(props.cost_in_credits) ? 'ᖬ' + props.cost_in_credits : props.cost_in_credits}</p>
-          </div>
-          <div className="py-3 px-2">
-            <h3 className="pb-2">Specifications</h3>
-            <p>Max speed: {props.max_atmosphering_speed} km/h</p>
-            <p>Length: {props.length} meters</p>
-            <p>Crew: {props.crew}</p>
-            <p>Cargo capacity: {props.cargo_capacity} kilograms</p>
+          <div className="d-flex flex-column">
+            <div className="fst-italic">
+              <p>{vehicle_class ? vehicle_class : starship_class} {model}</p>
+              <p>{manufacturer}</p>
+              <p>{!isNaN(cost_in_credits) ? 'ᖬ' + formatter.format(cost_in_credits) : cost_in_credits}</p>
+            </div>
+            <div className="align-self-center">
+              <img src={props.imageUrl} alt="" width='400' height='400'/>
+            </div>
+            <div className="py-3 px-2">
+              <h3 className="pb-2">Specifications</h3>
+              <p>Max atmosphering speed: {max_atmosphering_speed} km/h</p>
+              {starship_class && <p>Hyperdrive Rating: {hyperdrive_rating}</p>}
+              {starship_class && <p>MGLT: {MGLT}</p>}
+              <p>Length: {formatter.format(length)} meters</p>
+              <p>Crew: {crew}</p>
+              <p>Cargo capacity: {!isNaN(cargo_capacity) ? formatter.format(cargo_capacity) : 0} kilograms</p>
+            </div>
           </div>
         </Modal.Body>
       </Modal>
