@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import ToggleButton from '../components/ToggleButton';
+import { RingLoader } from 'react-spinners';
 
 class App extends Component {
   constructor() {
@@ -14,6 +15,7 @@ class App extends Component {
       searchField: '',
       displayVehicles: true,
       displayStarships: true,
+      loading: true,
     }
   }
 
@@ -59,8 +61,8 @@ class App extends Component {
       }
       return starship;
     });
-
-    this.setState({ vehicles: vehiclesData, starships: starshipsData });
+    
+    this.setState({ vehicles: vehiclesData, starships: starshipsData, loading: false});
   }
 
   //Arrow function uses value from outer function (event from onChange in SearchBox.js)
@@ -92,22 +94,31 @@ class App extends Component {
       return starship.name.toLowerCase().includes(searchField.toLowerCase());
     });
 
-    return(
-      <div className='text-center bg-dark'>
-        <h1 className='heading fw-bolder fs-1 text-uppercase mt-4 py-5 border-bottom border-white text-light'>Starwars Armoury</h1>
-        <div className='d-flex justify-content-center py-3 mx-5'>
-          <div className='d-inline-flex me-auto'>
-            <ToggleButton name='Vehicles' toggled={this.state.displayVehicles} toggle={this.onVehicleToggle}/>
-            <ToggleButton name='Starships' toggled={this.state.displayStarships} toggle={this.onStarshipToggle}/>
-          </div>
-          <div className='me-auto w-50'>
-            <SearchBox searchChange={this.onSearchChange}/>
-          </div>
+    if (this.state.loading) {
+      return(
+        <div className='d-flex loading-screen justify-content-center align-items-center'>
+          <RingLoader color='#f8f9fa' size='150' loading={this.state.loading}/>
         </div>
-        {this.state.displayVehicles && <CardList heading="Vehicles" elements={filteredVehicles}/>}
-        {this.state.displayStarships && <CardList heading="Starships" elements={filteredStarships}/>}
-      </div>
-    );
+      )
+    }
+    else {
+      return(
+        <div className='text-center bg-dark'>
+          <h1 className='heading fw-bolder fs-1 text-uppercase mt-4 py-5 border-bottom border-white text-light'>Starwars Armoury</h1>
+          <div className='d-flex justify-content-center py-3 mx-5'>
+            <div className='d-inline-flex me-auto'>
+              <ToggleButton name='Vehicles' toggled={this.state.displayVehicles} toggle={this.onVehicleToggle}/>
+              <ToggleButton name='Starships' toggled={this.state.displayStarships} toggle={this.onStarshipToggle}/>
+            </div>
+            <div className='me-auto w-50'>
+              <SearchBox searchChange={this.onSearchChange}/>
+            </div>
+          </div>
+          {this.state.displayVehicles && <CardList heading="Vehicles" elements={filteredVehicles}/>}
+          {this.state.displayStarships && <CardList heading="Starships" elements={filteredStarships}/>}
+        </div>
+      );
+    }
   }
 }
 
