@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/sw-armoury/static/css/main.a41819a2.css",
+    "main.js": "/sw-armoury/static/js/main.edf85845.js",
+    "static/media/StarJediOutline-y0xm.ttf": "/sw-armoury/static/media/StarJediOutline-y0xm.11294b70897dd4a06aaa.ttf",
+    "index.html": "/sw-armoury/index.html",
+    "main.a41819a2.css.map": "/sw-armoury/static/css/main.a41819a2.css.map",
+    "main.edf85845.js.map": "/sw-armoury/static/js/main.edf85845.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a41819a2.css",
+    "static/js/main.edf85845.js"
+  ]
+}
