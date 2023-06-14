@@ -104,13 +104,13 @@ class App extends Component {
     else {
       return(
         <div className='text-center bg-dark'>
-          <h1 className='heading fw-bolder fs-1 text-uppercase mt-4 py-5 border-bottom border-white text-light'>Starwars Armoury</h1>
+          <h1 className='heading fw-bolder display-1 mt-4 py-5 border-bottom border-white text-light'>Starwars Armoury</h1>
           <div className='d-flex justify-content-center py-3 mx-5'>
-            <div className='d-inline-flex me-auto'>
+            <div className='d-inline-flex'>
               <ToggleButton name='Vehicles' toggled={this.state.displayVehicles} toggle={this.onVehicleToggle}/>
               <ToggleButton name='Starships' toggled={this.state.displayStarships} toggle={this.onStarshipToggle}/>
             </div>
-            <div className='me-auto w-50'>
+            <div className='w-50 mx-auto'>
               <SearchBox searchChange={this.onSearchChange}/>
             </div>
           </div>

@@ -2,12 +2,13 @@
   font-family: 'StarJediOutline';
   font-style: normal;
   font-weight: normal;
-  src: local("Star Jedi Outline"),
-    url("../fonts/StarJediOutline-y0xm.ttf") format("ttf");
+  src: url("../fonts/starjedi/Starjhol.ttf") format("truetype");
+  font-display: swap;
 }
 
 .heading {
   font-family: 'StarJediOutline';
+  font-weight: normal;
 }
 
 .App {
