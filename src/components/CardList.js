@@ -15,7 +15,7 @@ const CardList = ({ elements, heading}) => {
   return(
     <div className="m-5">
       <h1 className="text-light">{heading}</h1>
-      <div className="grid">
+      <div className="d-flex-column grid justify-content-center">
         {mappedElements}
       </div>
     </div>

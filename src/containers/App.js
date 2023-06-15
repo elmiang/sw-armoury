@@ -97,7 +97,7 @@ class App extends Component {
     if (this.state.loading) {
       return(
         <div className='d-flex loading-screen justify-content-center align-items-center'>
-          <RingLoader color='#f8f9fa' size='150' loading={this.state.loading}/>
+          <RingLoader color='#f8f9fa' size='150px' loading={this.state.loading}/>
         </div>
       )
     }
@@ -105,12 +105,12 @@ class App extends Component {
       return(
         <div className='text-center bg-dark'>
           <h1 className='heading fw-bolder display-1 mt-4 py-5 border-bottom border-white text-light'>Starwars Armoury</h1>
+          <div className='d-inline-flex'>
+            <ToggleButton name='Vehicles' toggled={this.state.displayVehicles} toggle={this.onVehicleToggle}/>
+            <ToggleButton name='Starships' toggled={this.state.displayStarships} toggle={this.onStarshipToggle}/>
+          </div>
           <div className='d-flex justify-content-center py-3 mx-5'>
-            <div className='d-inline-flex'>
-              <ToggleButton name='Vehicles' toggled={this.state.displayVehicles} toggle={this.onVehicleToggle}/>
-              <ToggleButton name='Starships' toggled={this.state.displayStarships} toggle={this.onStarshipToggle}/>
-            </div>
-            <div className='w-50 mx-auto'>
+            <div className='search-bar mx-auto'>
               <SearchBox searchChange={this.onSearchChange}/>
             </div>
           </div>
