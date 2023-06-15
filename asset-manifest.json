@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/sw-armoury/static/css/main.9261b6c1.css",
-    "main.js": "/sw-armoury/static/js/main.ea71ffd6.js",
+    "main.css": "/sw-armoury/static/css/main.ac70df2d.css",
+    "main.js": "/sw-armoury/static/js/main.c3c7b7cd.js",
     "static/media/Starjhol.ttf": "/sw-armoury/static/media/Starjhol.c247ee6825d52f9d0862.ttf",
     "index.html": "/sw-armoury/index.html",
-    "main.9261b6c1.css.map": "/sw-armoury/static/css/main.9261b6c1.css.map",
-    "main.ea71ffd6.js.map": "/sw-armoury/static/js/main.ea71ffd6.js.map"
+    "main.ac70df2d.css.map": "/sw-armoury/static/css/main.ac70df2d.css.map",
+    "main.c3c7b7cd.js.map": "/sw-armoury/static/js/main.c3c7b7cd.js.map"
   },
   "entrypoints": [
-    "static/css/main.9261b6c1.css",
-    "static/js/main.ea71ffd6.js"
+    "static/css/main.ac70df2d.css",
+    "static/js/main.c3c7b7cd.js"
   ]
 }
