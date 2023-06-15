@@ -13,13 +13,19 @@ const VehicleModal = (props) => {
     event.stopPropagation();
   }
 
+  const onKeyPress = (event) => {
+    if (props.modalOpen && event.key === 'Escape') {
+      props.toggleModal();
+    }
+  }
+
   const {vehicle_class, starship_class, model, manufacturer, cost_in_credits, 
         max_atmosphering_speed, length, crew, cargo_capacity, hyperdrive_rating, MGLT} = props;
 
   const formatter = new Intl.NumberFormat();
 
   return(
-    <div className="modal-overlay" onClick={onOverlayClick}>
+    <div className="modal-overlay" onClick={onOverlayClick} onKeyDown={onKeyPress}>
       <Modal className="card-modal" show={props.modalOpen} onClick={onModalClick}>
         <Modal.Header className="justify-content-center">
           <Modal.Title className="display-6">{props.name}</Modal.Title>

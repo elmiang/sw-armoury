@@ -13,7 +13,7 @@ const ElementCard = (props) => {
 
   return(
     <div>
-      <Card bg='secondary gradient' text='light' className="m-3 rounded" onClick={handleClick}>
+      <Card bg='secondary gradient' text='light' className="m-3 rounded card" onClick={handleClick}>
         <Card.Body>
           <Card.Title className="fw-bolder">{name}</Card.Title>
           <Card.Text className="fst-italic">{model}</Card.Text>
